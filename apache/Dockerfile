@@ -1,12 +1,12 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
-apt-get install -y apache2 && \
-apt-get clean && \
-apt-get install php7.4 && \
-apt-get install mysql-server && \
-systemctl start mysql.service && \
+RUN apt-get update 
+RUN apt-get install -y apache2  
+RUN apt-get clean && 
+RUN apt-get install php7.4
+RUN docker-php-ext-install mysqli
+
 
 ENV APACHE_LOG_DIR /var/log/apache2
 
