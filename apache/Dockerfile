@@ -3,9 +3,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update 
 RUN apt-get install -y apache2  
-RUN apt-get clean && 
+RUN apt-get clean 
 RUN apt-get install php7.4
-RUN docker-php-ext-install mysqli
+RUN apt-get install mysql-server
+RUN systemctl start mysql.service
 
 
 ENV APACHE_LOG_DIR /var/log/apache2
