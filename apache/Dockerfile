@@ -6,6 +6,7 @@ RUN apt-get install -y apache2
 RUN apt-get clean 
 RUN apt-get install php7.4 -y
 RUN apt-get install mysql-server -y
+Run apt-get install php-mysql -y
 
 ENV APACHE_LOG_DIR /var/log/apache2
 
