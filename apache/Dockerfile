@@ -1,4 +1,7 @@
 FROM ubuntu:20.04
+WORKDIR app/
+COPY . ./
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update 
@@ -12,4 +15,5 @@ COPY * ./var/www/php
 ENV APACHE_LOG_DIR /var/log/apache2
 
 
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+#ENTRYPOINT ["/usr/sbin/apache2ctl","-D", "FOREGROUND"]
+ENTRYPOINT ["/var/www/php","-D", "FOREGROUND"]
