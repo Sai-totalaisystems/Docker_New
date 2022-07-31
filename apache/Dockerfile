@@ -8,7 +8,7 @@ RUN apt-get install php7.4 -y
 RUN apt-get install mysql-server -y
 RUN apt-get install php-mysql -y
 RUN service mysql start
-COPY ./var/www/php
+COPY * ./var/www/php
 ENV APACHE_LOG_DIR /var/log/apache2
 
 
