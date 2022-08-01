@@ -10,6 +10,7 @@ RUN apt-get clean
 RUN apt-get install php7.4 -y
 RUN apt-get install mysql-server -y
 RUN apt-get install php-mysql -y
+RUN --name some-mysql --restart unless-stopped -e MYSQL_ALLOW_EMPTY_PASSWORD=1 -p 3306:3306 -d mysql:latest
 #RUN service mysql start
 
 #RUN systemctl start mysql
